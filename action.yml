@@ -1,5 +1,5 @@
 name: "Required Labels"
-description: "Greet someone and record the time"
+description: "Notifies on issue if require labels are not added"
 inputs:
   who-to-greet: # id of input
     description: "Who to greet"
