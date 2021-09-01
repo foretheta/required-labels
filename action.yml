@@ -4,6 +4,10 @@ inputs:
   labels: # id of input
     description: "Required labels"
     required: true
+  GITHUB_TOKEN:
+    description: "Github Token"
+    required: true
+
 outputs:
   time: # id of output
     description: "The time we greeted you"
