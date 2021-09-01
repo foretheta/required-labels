@@ -6,11 +6,10 @@ try {
   const Labels = core.getInput("labels").split(",");
   const labelsObject = github.context.payload.issue.labels;
 
+  console.log(JSON.stringify(github.context.payload.issue.labels));
   let issueLabels = [];
 
-  labelsObject.forEach((item, index) => issueLabels.push(item));
-
-  console.log(JSON.stringify(issueLabels));
+  labelsObject.Labels.forEach((item, index) => issueLabels.push(item.name));
 
   const time = new Date().toTimeString();
   core.setOutput("time", time);
