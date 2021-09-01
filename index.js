@@ -4,10 +4,9 @@ const github = require("@actions/github");
 try {
   const github_token = core.getInput("GITHUB_TOKEN");
   const Labels = core.getInput("labels").split(",");
-  const issueLabels = github.context.payload;
+  const issueLabels = github.context.payload.labels;
 
-  console.log(issueLabels);
-  console.log(Labels);
+  console.log(JSON.stringify(issueLabels));
 
   const time = new Date().toTimeString();
   core.setOutput("time", time);
