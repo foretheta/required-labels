@@ -4,7 +4,7 @@ const github = require("@actions/github");
 try {
   const github_token = core.getInput("GITHUB_TOKEN");
   const Labels = core.getInput("labels").split(",");
-  const issueLabels = github.context.payload.labels;
+  const issueLabels = github.context.payload;
 
   console.log(JSON.stringify(issueLabels));
 
