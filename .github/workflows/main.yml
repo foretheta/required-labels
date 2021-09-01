@@ -1,6 +1,6 @@
 on:
   issues:
-    types: [opened, edited]
+    types: [opened]
 
 jobs:
   hello_world_job:
@@ -11,7 +11,7 @@ jobs:
         id: hello
         uses: muhaddimu/required-labels@master
         with:
-          who-to-greet: "Muhaddis"
+          labels: ["Muhaddis"]
       # Use the output from the `hello` step
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
