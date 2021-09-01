@@ -20,8 +20,9 @@ try {
       console.log(Labels[index], " issue exists");
     } else {
       const message =
-        ("The following labels " + Labels[index],
-        " does not exist on the issue. Please add these labels to avoid any inconvenience");
+        "The following labels " +
+        Labels[index] +
+        " does not exist on the issue. Please add these labels to avoid any inconvenience";
 
       octokit.rest.issues.createComment({
         issue_number: github.context.issue.number,
