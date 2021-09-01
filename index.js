@@ -26,9 +26,10 @@ try {
     }
 
     if (missingLabels.length > 0) {
+      missingLabelsString = missingLabels.replace(/,[s]*/g, ", ");
       const message =
         "The following labels **" +
-        missingLabels.replace(/,[s]*/g, ", ") +
+        missingLabelsString +
         "** does not exist on the issue. Please add these labels to avoid any inconvenience in future.";
 
       octokit.rest.issues.createComment({
