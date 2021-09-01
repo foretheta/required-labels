@@ -22,23 +22,22 @@ try {
       console.log(Labels[index], " issue exists");
     } else {
       missingLabels.push(Labels[index]);
-      // Let them know
     }
+  }
 
-    if (missingLabels.length > 0) {
-      missingLabelsString = missingLabels.replace(/,[s]*/g, ", ");
-      const message =
-        "The following labels **" +
-        missingLabelsString +
-        "** does not exist on the issue. Please add these labels to avoid any inconvenience in future.";
+  if (missingLabels.length > 0) {
+    missingLabelsString = missingLabels.replace(/,[s]*/g, ", ");
+    const message =
+      "The following labels **" +
+      missingLabelsString +
+      "** does not exist on the issue. Please add these labels to avoid any inconvenience in future.";
 
-      octokit.rest.issues.createComment({
-        issue_number: github.context.issue.number,
-        owner: github.context.repo.owner,
-        repo: github.context.repo.repo,
-        body: message,
-      });
-    }
+    octokit.rest.issues.createComment({
+      issue_number: github.context.issue.number,
+      owner: github.context.repo.owner,
+      repo: github.context.repo.repo,
+      body: message,
+    });
   }
 
   const payload = JSON.stringify(github.context.payload, undefined, 2);
