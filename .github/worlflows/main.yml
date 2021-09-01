@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: muhaddimu/required-labels@v1
+        uses: muhaddimu/required-labels@v1.2
         with:
           who-to-greet: "Muhaddis"
       # Use the output from the `hello` step
