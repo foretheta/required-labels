@@ -25,7 +25,7 @@ try {
       const octokit = github.getOctokit(github_token);
 
       octokit.rest.issues.createComment({
-        issue_number: issue_number,
+        issue_number: github.context.payload.issue.number,
         body: message,
       });
 
