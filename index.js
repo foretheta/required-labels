@@ -4,14 +4,11 @@ const github = require("@actions/github");
 try {
   const github_token = core.getInput("GITHUB_TOKEN");
   const Labels = core.getInput("labels").split(",");
-  const issueLabels = github.context.payload.labels;
+  const issueLabels = github.context.payload;
 
   console.log(issueLabels);
   console.log(Labels);
 
-  if (Labels) {
-    console.log(`Hello ${Labels}!`);
-  }
   const time = new Date().toTimeString();
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
