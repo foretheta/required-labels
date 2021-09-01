@@ -4,9 +4,9 @@ const github = require("@actions/github");
 try {
   const github_token = core.getInput("GITHUB_TOKEN");
   const Labels = core.getInput("labels").split(",");
-  const labelsObject = github.context.payload.issue.labels;
+  const labelsObject = github.context.payload.issue.labels[0];
 
-  console.log(JSON.stringify(github.context.payload.issue.labels));
+  console.log(JSON.stringify(github.context.payload.issue.labels[0]));
   let issueLabels = [];
 
   labelsObject.Labels.forEach((item, index) => issueLabels.push(item.name));
