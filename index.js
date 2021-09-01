@@ -15,14 +15,21 @@ try {
   core.setOutput("time", time);
   // Get the JSON webhook payload for the event that triggered the workflow
 
+  let missingLabels = [];
+
   for (let index = 0; index < Labels.length; index++) {
     if (issueLabels.includes(Labels[index])) {
       console.log(Labels[index], " issue exists");
     } else {
+      missingLabels.push(Labels[index]);
+      // Let them know
+    }
+
+    if (missingLabels.length > 0) {
       const message =
-        "The following labels " +
-        Labels[index] +
-        " does not exist on the issue. Please add these labels to avoid any inconvenience in future.";
+        "The following labels **" +
+        missingLabels.replace(/,[s]*/g, ", ") +
+        "** does not exist on the issue. Please add these labels to avoid any inconvenience in future.";
 
       octokit.rest.issues.createComment({
         issue_number: github.context.issue.number,
@@ -30,8 +37,6 @@ try {
         repo: github.context.repo.repo,
         body: message,
       });
-
-      // Let them know
     }
   }
 
