@@ -1,4 +1,6 @@
-on: [push]
+on:
+  issues:
+    types: [opened, edited]
 
 jobs:
   hello_world_job:
