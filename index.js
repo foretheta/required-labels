@@ -23,7 +23,7 @@ try {
         ("The following labels " + Labels[index],
         " does not exist on the issue. Please add these labels to avoid any inconvenience");
 
-      octokit.issues.createComment({
+      octokit.rest.issues.createComment({
         issue_number: github.context.issue.number,
         owner: github.context.repo.owner,
         repo: github.context.repo.repo,
