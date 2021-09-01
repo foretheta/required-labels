@@ -26,7 +26,7 @@ try {
   }
 
   if (missingLabels.length > 0) {
-    missingLabelsString = missingLabels.replace(/,[s]*/g, ", ");
+    missingLabelsString = missingLabels.join(", ");
     const message =
       "The following labels **" +
       missingLabelsString +
