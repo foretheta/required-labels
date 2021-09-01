@@ -22,8 +22,9 @@ try {
         ("The following labels " + Labels[index],
         " does not exist on the issue. Please add these labels to avoid any inconvenience");
 
-      const octokit = new github.GitHub(github_token);
-      octokit.issues.createComment({
+      const octokit = github.getOctokit(github_token);
+
+      octokit.rest.issues.createComment({
         issue_number: issue_number,
         body: message,
       });
