@@ -29,12 +29,6 @@ try {
         body: message,
       });
 
-      octokit.issues.createComment({
-        issue_number: context.issue.number,
-        owner: context.repo.owner,
-        repo: github.context.repo.repo,
-        body: message,
-      });
       // Let them know
     }
   }
