@@ -3,12 +3,12 @@ on:
     types: [opened]
 
 jobs:
-  hello_world_job:
+  required_labels:
     runs-on: ubuntu-latest
     name: Required Labels
     steps:
       - name: Required Labels
         uses: muhaddimu/required-labels@master
         with:
-          labels: "Todo, Bug"
+          labels: "Bug"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
