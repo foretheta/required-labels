@@ -1,5 +1,5 @@
 name: "Required Labels Action"
-description: "Notifies on issue if required labels are not added"
+description: "This action prints the comment on an issue if the required labels are not added in the issue. The required actions can be added in the action input using comma seperated values"
 branding:
   icon: "alert-octagon"
   color: "green"
