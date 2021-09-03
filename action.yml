@@ -1,5 +1,8 @@
 name: "Required Labels Action"
 description: "Notifies on issue if required labels are not added"
+branding:
+  icon: "alert-octagon"
+  color: "green"
 inputs:
   labels: # id of input
     description: "Required labels"
