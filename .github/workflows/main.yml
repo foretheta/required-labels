@@ -10,5 +10,5 @@ jobs:
       - name: Required Labels
         uses: muhaddimu/required-labels@master
         with:
-          labels: "Hacker"
+          labels: "Todo, Bug"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
