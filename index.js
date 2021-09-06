@@ -13,16 +13,13 @@ try {
     return !labelsInIssue.includes(requiredLabel);
   });
 
-  const validIssues = () =>
-    labelsInIssue.some((label) => requiredLabels.indexOf(label)) > 0;
-
   const isAtleastOneValidLabelAdded = () => {
-    requiredLabels.length === 0 ? false : validIssues;
+    requiredLabels.length === 0 ? false : validIssues();
   };
-
-  console.log(isAtleastOneValidLabelAdded);
-
-  if (isAtleastOneValidLabelAdded === false) {
+  if (
+    labelsInIssue.length !== 0 &&
+    labelsInIssue.some((label) => requiredLabels.indexOf(label) > 0) !== true
+  ) {
     // if (missingLabels > 0) {
     const missingLabelsString = missingLabels.join(", ");
     const message =
