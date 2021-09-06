@@ -9,6 +9,11 @@ try {
   });
   const octokit = github.getOctokit(github_token);
 
+  console.log(requiredLabels);
+  console.log(typeof requiredLabels);
+  console.log(labelsInIssue);
+  console.log(typeof labelsInIssue);
+
   const missingLabels = requiredLabels.filter((requiredLabel) => {
     return !labelsInIssue.includes(requiredLabel);
   });
