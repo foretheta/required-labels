@@ -6334,7 +6334,7 @@ try {
     if (labelsInIssue.length === 0) {
       return false;
     } else {
-      return requiredLabels.some((label) => {
+      requiredLabels.some((label) => {
         labelsInIssue.indexOf(label) > 0;
       });
     }
