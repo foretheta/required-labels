@@ -6331,8 +6331,8 @@ try {
   });
 
   if (
-    missingLabels.sort() !== requiredLabels.sort() &&
-    missingLabels.length > 0
+    !labelsInIssue.some((label) => requiredLabels.indexOf(label)) > 0 &&
+    missingLabels > 0
   ) {
     const missingLabelsString = missingLabels.join(", ");
     const message =
