@@ -23,9 +23,9 @@ try {
     }
   };
 
-  console.log(isAtleastOneValidLabelAdded);
+  console.log(isAtleastOneValidLabelAdded());
 
-  if (isAtleastOneValidLabelAdded === false) {
+  if (isAtleastOneValidLabelAdded() === false) {
     // if (missingLabels > 0) {
     const missingLabelsString = missingLabels.join(", ");
     const message =
