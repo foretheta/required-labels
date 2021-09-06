@@ -13,19 +13,16 @@ try {
     return !labelsInIssue.includes(requiredLabel);
   });
 
+  const validIssues = () =>
+    labelsInIssue.some((label) => requiredLabels.indexOf(label)) > 0;
+
   const isAtleastOneValidLabelAdded = () => {
-    if (labelsInIssue.length === 0) {
-      return false;
-    } else {
-      requiredLabels.some((label) => {
-        labelsInIssue.indexOf(label) > 0;
-      });
-    }
+    requiredLabels.length === 0 ? false : validIssues;
   };
 
-  console.log(isAtleastOneValidLabelAdded());
+  console.log(isAtleastOneValidLabelAdded);
 
-  if (isAtleastOneValidLabelAdded() === false) {
+  if (isAtleastOneValidLabelAdded === false) {
     // if (missingLabels > 0) {
     const missingLabelsString = missingLabels.join(", ");
     const message =
