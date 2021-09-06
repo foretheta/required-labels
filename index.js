@@ -13,7 +13,7 @@ try {
     return !labelsInIssue.includes(requiredLabel);
   });
 
-  if (missingLabels.length > 1) {
+  if (missingLabels.length <= labelsInIssue.length - 1) {
     const missingLabelsString = missingLabels.join(", ");
     const message =
       "The following label **" +
