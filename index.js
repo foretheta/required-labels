@@ -3,10 +3,13 @@ const github = require("@actions/github");
 
 try {
   const github_token = core.getInput("GITHUB_TOKEN");
-  const Labels = core.getInput("labels").split(",");
-  const labelsObject = github.context.payload.issue.labels;
+  const requiredLabels = core.getInput("labels").split(",");
+  const labelsInIssue = github.context.payload.issue.labels.map((label) => {
+    return label.name;
+  });
   const octokit = github.getOctokit(github_token);
 
+<<<<<<< HEAD
   let issueLabels = [];
 
   labelsObject.forEach((item, index) => issueLabels.push(item.name));
@@ -22,6 +25,14 @@ try {
 
   if (missingLabels.length > 1) {
     missingLabelsString = missingLabels.join(", ");
+=======
+  const missingLabels = requiredLabels.filter((requiredLabel) => {
+    return !labelsInIssue.includes(requiredLabel);
+  });
+
+  if (missingLabels.length > 0) {
+    const missingLabelsString = missingLabels.join(", ");
+>>>>>>> ba95e45751ada2197155d5cab305ae22217cae61
     const message =
       "The following label **" +
       missingLabelsString +
