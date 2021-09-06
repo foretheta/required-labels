@@ -6331,7 +6331,7 @@ try {
   });
 
   if (
-    missingLabels.sort() === requiredLabels.sort() &&
+    missingLabels.sort() !== requiredLabels.sort() &&
     missingLabels.length > 0
   ) {
     const missingLabelsString = missingLabels.join(", ");
