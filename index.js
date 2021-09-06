@@ -9,30 +9,12 @@ try {
   });
   const octokit = github.getOctokit(github_token);
 
-<<<<<<< HEAD
-  let issueLabels = [];
-
-  labelsObject.forEach((item, index) => issueLabels.push(item.name));
-
-  let missingLabels = [];
-
-  for (let index = 0; index < Labels.length; index++) {
-    if (issueLabels.includes(Labels[index])) {
-    } else {
-      missingLabels.push(Labels[index]);
-    }
-  }
-
-  if (missingLabels.length > 1) {
-    missingLabelsString = missingLabels.join(", ");
-=======
   const missingLabels = requiredLabels.filter((requiredLabel) => {
     return !labelsInIssue.includes(requiredLabel);
   });
 
-  if (missingLabels.length > 0) {
+  if (missingLabels.length > 1) {
     const missingLabelsString = missingLabels.join(", ");
->>>>>>> ba95e45751ada2197155d5cab305ae22217cae61
     const message =
       "The following label **" +
       missingLabelsString +
