@@ -15,16 +15,15 @@ try {
 
   for (let index = 0; index < Labels.length; index++) {
     if (issueLabels.includes(Labels[index])) {
-      console.log(Labels[index], " issue exists");
     } else {
       missingLabels.push(Labels[index]);
     }
   }
 
-  if (missingLabels.length > 0) {
+  if (missingLabels.length > 1) {
     missingLabelsString = missingLabels.join(", ");
     const message =
-      "The following labels **" +
+      "The following label **" +
       missingLabelsString +
       "** does not exist on the issue. Please add these labels to avoid any inconvenience in future.";
 
