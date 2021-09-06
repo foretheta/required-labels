@@ -9,18 +9,21 @@ try {
   });
   const octokit = github.getOctokit(github_token);
 
-  console.log(requiredLabels);
-  console.log(typeof requiredLabels);
-  console.log(labelsInIssue);
-  console.log(typeof labelsInIssue);
-
   const missingLabels = requiredLabels.filter((requiredLabel) => {
     return !labelsInIssue.includes(requiredLabel);
   });
 
-  const isAtleastOneValidLabelAdded = requiredLabels.some(
-    (label) => labelsInIssue.indexOf(label) > 0
-  );
+  const isAtleastOneValidLabelAdded = () => {
+    if (labelsInIssue.length === 0) {
+      return false;
+    } else {
+      return requiredLabels.some((label) => {
+        labelsInIssue.indexOf(label) > 0;
+      });
+    }
+  };
+
+  console.log(isAtleastOneValidLabelAdded);
 
   if (isAtleastOneValidLabelAdded === false) {
     // if (missingLabels > 0) {
