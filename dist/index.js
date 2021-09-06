@@ -6339,7 +6339,7 @@ try {
     (label) => labelsInIssue.indexOf(label) > 0
   );
 
-  if (isAtleastOneValidLabelAdded === true) {
+  if (isAtleastOneValidLabelAdded === false) {
     if (missingLabels > 0) {
       const missingLabelsString = missingLabels.join(", ");
       const message =
