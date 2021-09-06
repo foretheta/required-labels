@@ -13,7 +13,10 @@ try {
     return !labelsInIssue.includes(requiredLabel);
   });
 
-  if (labelsInIssue > 0 && missingLabels.length > 0) {
+  if (
+    missingLabels.sort() === requiredLabels.sort() &&
+    missingLabels.length > 0
+  ) {
     const missingLabelsString = missingLabels.join(", ");
     const message =
       "The following label **" +
