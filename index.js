@@ -28,7 +28,7 @@ try {
     });
   } else if (
     missingLabels.length === requiredLabels.length &&
-    missingLabels.length > 1
+    missingLabels.length > 0
   ) {
     octokit.rest.issues.createComment({
       issue_number: github.context.issue.number,
