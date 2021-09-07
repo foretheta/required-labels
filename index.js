@@ -27,7 +27,7 @@ try {
       body: message,
     });
   } else if (
-    missingLabels.length !== requiredLabels.length &&
+    missingLabels.length === requiredLabels.length &&
     missingLabels.length > 1
   ) {
     octokit.rest.issues.createComment({
